@@ -18,8 +18,8 @@
         --violet: #007aff;
         --teal: #34c759;
         --coral: #ff9500;
-        --glass: rgba(255, 255, 255, 0.75);
-        --glass-strong: rgba(255, 255, 255, 0.9);
+        --glass: rgba(255, 255, 255, 0.85);
+        --glass-strong: rgba(255, 255, 255, 0.95);
         --line: rgba(0, 0, 0, 0.08);
         --text: #1c1c1e;
         --text-dim: #8e8e93;
@@ -27,20 +27,19 @@
         --medium: #ff9500;
         --low: #007aff;
         --accent: var(--violet);
-        --radius-card: 22px;
+        --radius-card: 20px;
         --body-bg: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
         color-scheme: light;
     }
 
-    /* Revize Edilmiş Canlı Siyah (Midnight Neon) Modu */
     [data-theme="dark"] {
         --ink: #0c0f1d;
         --ink-2: #161b30;
         --violet: #8a7bff;
         --teal: #38ef7d;
         --coral: #ff758c;
-        --glass: rgba(22, 27, 48, 0.75);
-        --glass-strong: rgba(28, 34, 60, 0.88);
+        --glass: rgba(22, 27, 48, 0.85);
+        --glass-strong: rgba(28, 34, 60, 0.95);
         --line: rgba(255, 255, 255, 0.12);
         --text: #f5f6fa;
         --text-dim: #9aa0ba;
@@ -70,9 +69,6 @@
     .aurora span:nth-child(1) { width: 480px; height: 480px; background: #c2e9fb; top: -160px; left: -120px; }
     .aurora span:nth-child(2) { width: 420px; height: 420px; background: #e0c3fc; bottom: -140px; right: -100px; }
     .aurora span:nth-child(3) { width: 320px; height: 320px; background: #fed6e3; top: 40%; left: 55%; opacity: 0.5; }
-    [data-theme="dark"] .aurora span:nth-child(1) { background: #5f27cd; }
-    [data-theme="dark"] .aurora span:nth-child(2) { background: #00d2d3; }
-    [data-theme="dark"] .aurora span:nth-child(3) { background: #ff6b6b; }
 
     @keyframes drift {
         0%, 100% { transform: translate(0,0) scale(1); }
@@ -86,7 +82,6 @@
         background: radial-gradient(circle at 30% 30%, rgba(0, 122, 255, 0.4), rgba(0, 122, 255, 0.05));
         opacity: 0; animation: float-up linear forwards;
     }
-    [data-theme="dark"] .thought { background: radial-gradient(circle at 30% 30%, rgba(138, 123, 255, 0.6), rgba(138, 123, 255, 0.05)); }
     @keyframes float-up {
         0% { opacity: 0; transform: translateY(0) scale(0.4); }
         10% { opacity: 0.7; }
@@ -99,32 +94,30 @@
         width: 100%; max-width: 420px; height: 850px; max-height: 95vh;
         border-radius: 44px; border: 1px solid var(--line);
         box-shadow: 0 30px 60px rgba(0,0,0,0.15); display: flex; flex-direction: column;
-        overflow: hidden; position: relative; z-index: 2; animation: appAppear 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden; position: relative; z-index: 2;
     }
-    @keyframes appAppear { from { opacity: 0; transform: translateY(40px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-    .header { padding: 34px 24px 14px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .header { padding: 30px 24px 12px 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-shrink: 0; }
     .header h1 { font-weight: 800; font-size: 28px; color: var(--text); letter-spacing: -0.03em; }
-    .header p { color: var(--text-dim); font-size: 12.5px; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+    .header p { color: var(--text-dim); font-size: 12.5px; margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
 
     .header-actions { display: flex; align-items: center; gap: 10px; }
     .progress-ring { position: relative; width: 42px; height: 42px; }
-    .progress-ring.glow { filter: drop-shadow(0 0 10px var(--teal)); }
     .progress-ring svg { transform: rotate(-90deg); }
     .progress-ring circle { fill: none; stroke-width: 3.5; }
     .progress-ring .track { stroke: var(--line); }
-    .progress-ring .bar { stroke: url(#ringGrad); stroke-linecap: round; transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .progress-ring .bar { stroke: url(#ringGrad); stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
     .progress-ring .pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 9.5px; font-weight: 700; color: var(--text); font-family: 'JetBrains Mono', monospace; }
 
     .icon-top-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text); padding: 4px; border-radius: 8px; }
 
-    .search-row { padding: 0 24px 12px 24px; }
+    .search-row { padding: 0 24px 10px 24px; flex-shrink: 0; }
     .search-input {
         width: 100%; padding: 11px 14px; border-radius: 14px; border: 1px solid var(--line);
         background: var(--ink-2); color: var(--text); font-size: 13.5px; outline: none;
     }
 
-    .categories { display: flex; gap: 8px; padding: 0 24px 15px 24px; overflow-x: auto; }
+    .categories { display: flex; gap: 8px; padding: 0 24px 12px 24px; overflow-x: auto; flex-shrink: 0; }
     .categories::-webkit-scrollbar { display: none; }
     .category-btn {
         background: var(--ink-2); color: var(--text-dim); border: 1px solid var(--line);
@@ -132,7 +125,11 @@
     }
     .category-btn.active { background: var(--violet); color: #ffffff; border-color: transparent; font-weight: 600; }
 
-    .task-list { flex: 1; overflow-y: auto; padding: 8px 24px 10px 24px; display: flex; flex-direction: column; gap: 10px; }
+    /* LİSTE SIKIŞMASINI ÖNLEYEN KRİTİK CSS DÜZELTMELERİ */
+    .task-list {
+        flex: 1; min-height: 0; overflow-y: auto; padding: 6px 24px 12px 24px;
+        display: flex; flex-direction: column; gap: 10px;
+    }
     .task-list::-webkit-scrollbar { width: 4px; }
     .task-list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
 
@@ -141,7 +138,7 @@
         text-align: center; color: var(--text-dim); gap: 10px; padding: 40px 20px;
     }
 
-    .swipe-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; }
+    .swipe-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; flex-shrink: 0; }
     .swipe-bg {
         position: absolute; inset: 0; background: linear-gradient(90deg, transparent 40%, var(--high));
         display: flex; align-items: center; justify-content: flex-end; padding-right: 22px; font-size: 18px; opacity: 0;
@@ -149,9 +146,9 @@
     .swipe-wrap.arming .swipe-bg { opacity: 1; }
 
     .task-card {
-        background: var(--ink-2); border-radius: var(--radius-card); padding: 15px 16px; display: flex;
+        background: var(--ink-2); border-radius: var(--radius-card); padding: 14px 16px; display: flex;
         align-items: center; gap: 13px; position: relative; border: 1px solid var(--line);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06); touch-action: pan-y;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04); touch-action: pan-y; min-height: 64px; flex-shrink: 0;
     }
     .task-card.completed { border-color: rgba(52, 199, 89, 0.3); background: var(--glass-strong); }
     .task-card.completed .task-title { text-decoration: line-through; color: var(--text-dim); opacity: 0.65; }
@@ -164,19 +161,20 @@
     .task-card.completed .check-circle::after { content: '✓'; color: #ffffff; font-size: 13px; font-weight: 800; }
 
     .task-details { flex: 1; min-width: 0; }
-    .task-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; overflow-wrap: break-word; }
+    .task-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; overflow-wrap: break-word; line-height: 1.3; }
     .task-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 11px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
     .priority-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
     .priority-dot.high { background: var(--high); }
     .priority-dot.medium { background: var(--medium); }
     .priority-dot.low { background: var(--low); }
 
-    .actions { display: flex; gap: 0; flex-shrink: 0; }
+    .actions { display: flex; gap: 2px; flex-shrink: 0; }
     .icon-btn { background: none; border: none; font-size: 15px; cursor: pointer; padding: 6px; border-radius: 8px; }
 
     .add-task-container {
-        padding: 16px 24px 26px 24px; background: var(--glass-strong); border-top: 1px solid var(--line);
-        display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 3; backdrop-filter: blur(20px);
+        padding: 16px 24px 24px 24px; background: var(--glass-strong); border-top: 1px solid var(--line);
+        display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 3;
+        backdrop-filter: blur(20px); flex-shrink: 0;
     }
     .input-row { display: flex; gap: 8px; }
     input[type="text"], select {
@@ -261,7 +259,7 @@
     <div class="header">
         <div>
             <h1>Zihin Alanı</h1>
-            <p id="task-counter">Bugün 0 görev</p>
+            <p id="task-counter">Bugün 0 görev var</p>
         </div>
         <div class="header-actions">
             <div class="progress-ring" id="progressRing">
@@ -333,7 +331,7 @@
             <div class="calendar-grid" id="calendarGrid"></div>
             <div class="time-selector">
                 <span>Saat:</span>
-                <select id="timeSelect"></select>
+                <select id="timeSelect" onchange="playTickSound()"></select>
             </div>
         </div>
     </div>
@@ -353,8 +351,37 @@ let storageReady = false;
 let viewDate = new Date();
 let tempSelectedDate = new Date();
 
-const TASKS_KEY = 'zihinAlani_tasks_v7';
-const THEME_KEY = 'zihinAlani_theme_v7';
+const TASKS_KEY = 'zihinAlani_tasks_v8';
+const THEME_KEY = 'zihinAlani_theme_v8';
+
+/* ---------------- WEB AUDIO API ÇARK TIK SESİ ---------------- */
+let audioCtx = null;
+
+function playTickSound() {
+    try {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.03);
+
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.03);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.03);
+    } catch (e) {}
+}
 
 /* ---------------- Depolama ---------------- */
 function loadTasks() {
@@ -385,6 +412,7 @@ function setTheme(mode) {
     }
 }
 function toggleTheme() {
+    playTickSound();
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     setTheme(isDark ? 'light' : 'dark');
     try { localStorage.setItem(THEME_KEY, isDark ? 'light' : 'dark'); } catch (e) {}
@@ -400,6 +428,7 @@ function showToast(msg) {
 
 /* ---------------- BİLDİRİM MANTIĞI ---------------- */
 function requestNotificationPermission() {
+    playTickSound();
     if (!("Notification" in window)) {
         alert("Bu tarayıcı bildirimleri desteklemiyor.");
         return;
@@ -432,7 +461,7 @@ function checkNotifications() {
         }
     });
 }
-setInterval(checkNotifications, 15000); // 15 sn bir denetle
+setInterval(checkNotifications, 15000);
 
 /* ---------------- Render ---------------- */
 function renderTasks() {
@@ -473,10 +502,10 @@ function renderTasks() {
         taskEl.innerHTML = `
             <button class="check-circle" onclick="toggleTask(${task.id})"></button>
             <div class="task-details">
-                <div class="task-title">${task.title}</div>
+                <div class="task-title">${escapeHtml(task.title)}</div>
                 <div class="task-meta">
                     <div class="priority-dot ${task.priority}"></div>
-                    <span>${task.category}</span>
+                    <span>${escapeHtml(task.category)}</span>
                     ${dateHtml}
                 </div>
             </div>
@@ -503,8 +532,14 @@ function renderTasks() {
     document.getElementById('progressPct').textContent = `${pct}%`;
 }
 
+function escapeHtml(str) {
+    if (!str) return "";
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 /* ---------------- Ekle / Düzenle ---------------- */
 function handleSubmit() {
+    playTickSound();
     const titleInput = document.getElementById('taskInput');
     const title = titleInput.value.trim();
 
@@ -553,6 +588,7 @@ function resetForm() {
 function cancelEdit() { resetForm(); }
 
 function toggleTask(id) {
+    playTickSound();
     const task = tasks.find(t => t.id === id);
     if (!task) return;
     task.isCompleted = !task.isCompleted;
@@ -561,12 +597,14 @@ function toggleTask(id) {
 }
 
 function deleteTask(id) {
+    playTickSound();
     tasks = tasks.filter(t => t.id !== id);
     persistTasks();
     renderTasks();
 }
 
 function editTask(id) {
+    playTickSound();
     const task = tasks.find(t => t.id === id);
     if (!task) return;
     editingTaskId = id;
@@ -589,12 +627,13 @@ function editTask(id) {
 }
 
 function filterTasks(category) {
+    playTickSound();
     currentFilter = category;
     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.cat === category));
     renderTasks();
 }
 
-/* ---------------- GÖRSEL TAKVİM ---------------- */
+/* ---------------- TAKVİM VE ÇARK SESİ ---------------- */
 const monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
 const dayNames = ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"];
 
@@ -634,6 +673,7 @@ function renderCalendar() {
         if (dateObj.toDateString() === tempSelectedDate.toDateString()) dayEl.classList.add('selected');
 
         dayEl.onclick = () => {
+            playTickSound(); // Çark/Tık sesi
             tempSelectedDate = dateObj;
             renderCalendar();
         };
@@ -642,11 +682,13 @@ function renderCalendar() {
 }
 
 function changeMonth(offset) {
+    playTickSound();
     viewDate.setMonth(viewDate.getMonth() + offset);
     renderCalendar();
 }
 
 function openPicker() {
+    playTickSound();
     initTimeSelect();
     viewDate = new Date();
     tempSelectedDate = selectedDateTimestamp ? new Date(selectedDateTimestamp) : new Date();
@@ -655,6 +697,7 @@ function openPicker() {
 }
 
 function confirmDateSelection() {
+    playTickSound();
     const timeVal = document.getElementById('timeSelect').value;
     const [hours, minutes] = timeVal.split(':');
     
@@ -675,6 +718,7 @@ function confirmDateSelection() {
 }
 
 function clearDate() {
+    playTickSound();
     selectedDateText = ""; selectedDateTimestamp = null;
     const btn = document.getElementById('datePickerBtn');
     btn.textContent = "📅 Tarih & Saat Seç (İsteğe Bağlı)";
